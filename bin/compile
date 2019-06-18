@@ -8,12 +8,12 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-echo "Creating temporary folder"
+echo "Creating temporary folder" | indent
 TMP_DIR=$(mktemp)
 
 echo "Created temporary folder '${TMP_DIR}'" | indent
 
-echo "Determining app folder value"
+echo "Determining app folder value" | indent
 APP_DIR=$(cat ${ENV_DIR}/HMR_APP_DIR)
 if [[ -z "${APP_DIR}" ]]; then
     echo "No app folder specified" | indent
@@ -35,14 +35,14 @@ if ! [ $? ]; then
     exit 1
 fi
 
-echo "Removing root folder contents"
+echo "Removing root folder contents" | indent
 rm -rf ${BUILD_DIR}/*
 if ! [ $? ]; then
     echo "FAILED to clear root folder contents" | indent
     exit 1
 fi
 
-echo "Moving back app folder contents to root folder"
+echo "Moving back app folder contents to root folder" | indent
 mv -R ${TMP_DIR}/* ${BUILD_DIR}/
 if ! [ $? ]; then
     echo "FAILED to move over app folder contents to root folder" | indent
