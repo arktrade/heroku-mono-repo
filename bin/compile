@@ -49,7 +49,9 @@ if ! [ $? ]; then
     exit 1
 fi
 
-echo "Deleting tmp file"
+echo "Deleting tmp file" | indent
 rm -rf "${TMP_DIR}"
+
+ls -al "${BUILD_DIR}"
 
 echo "Successfully copied over all app folder contents to root folder" | indent
