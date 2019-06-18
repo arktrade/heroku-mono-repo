@@ -29,7 +29,7 @@ if [[ ! -d "${BUILD_DIR}/${APP_DIR}" ]]; then
 fi
 
 echo "Copying app folder contents from '${BUILD_DIR}/${APP_DIR}' to '${TMP_DIR}'" | indent
-cp -R ${BUILD_DIR}/${APP_DIR} ${TMP_DIR}
+cp -R ${BUILD_DIR}/${APP_DIR} ${TMP_DIR}/
 if ! [ $? ]; then
     echo "FAILED to copy a app folder contents" | indent
     exit 1
@@ -43,7 +43,7 @@ if ! [ $? ]; then
 fi
 
 echo "Moving back app folder contents to root folder" | indent
-mv -R ${TMP_DIR}/* ${BUILD_DIR}/
+mv ${TMP_DIR}/* ${BUILD_DIR}/
 if ! [ $? ]; then
     echo "FAILED to move over app folder contents to root folder" | indent
     exit 1
