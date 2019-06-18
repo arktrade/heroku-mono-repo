@@ -9,7 +9,7 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 echo "Creating temporary folder" | indent
-TMP_DIR=$(mktemp)
+TMP_DIR=$(mktemp -d)
 
 echo "Created temporary folder '${TMP_DIR}'" | indent
 
@@ -48,5 +48,8 @@ if ! [ $? ]; then
     echo "FAILED to move over app folder contents to root folder" | indent
     exit 1
 fi
+
+echo "Deleting tmp file"
+rm -rf "${TMP_DIR}"
 
 echo "Successfully copied over all app folder contents to root folder" | indent
