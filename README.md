@@ -2,11 +2,6 @@
 
 [Heroku buildpack](https://devcenter.heroku.com/articles/buildpack-api) that makes a _service/project_ in a mono repo the root directory for deployment.
 
-## Assumptions
-
-- The folder containing the service to be deployed contains everything it needs in and of itself to be deployed.
-- No file exists in the root of the repository that is required by the service in order for it to be deployed successfully.
-
 ## Setup
 
 1. Create an empty `.mono` file in the root folder of the repo.
@@ -37,6 +32,11 @@ You can always clear your buildpacks using the following command:
 ```sh
 heroku buildpacks:clear
 ```
+
+## Assumptions
+
+- The folder containing the service to be deployed contains everything it needs in and of itself to be deployed.
+- No file exists in the root of the repository that is required by the service in order for it to be deployed successfully.
 
 # License
 
