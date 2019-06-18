@@ -1,6 +1,6 @@
 # heroku-mono-repo
 
-Heroku buildpack that makes a _service/project_ in a mono repo the root directory for deployment.
+[Heroku buildpack](https://devcenter.heroku.com/articles/buildpack-api) that makes a _service/project_ in a mono repo the root directory for deployment.
 
 ## Assumptions
 
