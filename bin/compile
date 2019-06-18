@@ -23,7 +23,7 @@ fi
 echo "Working with app folder: ${APP_DIR}" | indent
 
 echo "Checking app folder existence" | indent
-if [[ ! -d "${APP_DIR}" ]]; then
+if [[ ! -d "${BUILD_DIR}/${APP_DIR}" ]]; then
     echo "App folder does not exist" | indent
     exit 1
 fi
