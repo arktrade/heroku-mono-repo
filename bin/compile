@@ -31,14 +31,24 @@ fi
 echo "Copying app folder contents from '${BUILD_DIR}/${APP_DIR}/.' to '${TMP_DIR}'" | indent
 cp -a ${BUILD_DIR}/${APP_DIR}/. ${TMP_DIR}/
 if ! [ $? ]; then
-    echo "FAILED to copy a app folder contents" | indent
+    echo "FAILED to copy app folder contents" | indent
     exit 1
 fi
+
+MODULES=$(cat ${ENV_DIR}/HMR_LOCAL_MODULES)
+for m in "${MODULES[@]}"
+do
+    cp -a ${BUILD_DIR}/${m} ${TMP_DIR}/
+    if ! [ $? ]; then
+        echo "FAILED to local modules over" | indent
+        exit 1
+    fi
+done
 
 echo "Copying go module files from '${BUILD_DIR}/.' to '${TMP_DIR}'" | indent
 cp -a ${BUILD_DIR}/go.* ${TMP_DIR}/
 if ! [ $? ]; then
-    echo "FAILED to copy a app folder contents" | indent
+    echo "FAILED to copy go module files" | indent
     exit 1
 fi
 
