@@ -16,7 +16,7 @@ echo "Created temporary folder '${TMP_DIR}'" | indent
 echo "Determining app folder value" | indent
 APP_DIR=$(cat ${ENV_DIR}/HMR_APP_DIR)
 if [[ -z "${APP_DIR}" ]]; then
-    echo "No app folder specified" | indent
+    echo "No app folder (HMR_APP_DIR) specified" | indent
     exit 1
 fi
 
@@ -36,6 +36,11 @@ if ! [ $? ]; then
 fi
 
 MODULES=$(cat ${ENV_DIR}/HMR_LOCAL_MODULES)
+if [[ -z "${MODULES}" ]]; then
+    echo "No local modules (HMR_LOCAL_MODULES) specified" | indent
+    exit 1
+fi
+
 for m in "${MODULES[@]}"
 do
     cp -a ${BUILD_DIR}/${m} ${TMP_DIR}/
