@@ -35,6 +35,13 @@ if ! [ $? ]; then
     exit 1
 fi
 
+echo "Copying go module files from '${BUILD_DIR}/.' to '${TMP_DIR}'" | indent
+cp -a ${BUILD_DIR}/go.* ${TMP_DIR}/
+if ! [ $? ]; then
+    echo "FAILED to copy a app folder contents" | indent
+    exit 1
+fi
+
 echo "Removing root folder contents" | indent
 rm -rf ${BUILD_DIR}/*
 if ! [ $? ]; then
