@@ -14,6 +14,10 @@ Given you have the folder directory structure:
 
 ```
 repo
+ |_ auth
+ |_ db
+ |_ go.mod
+ |_ go.sum
  |_ pmt
  |_ usrv
  |_ .mono
@@ -23,7 +27,7 @@ If you want to deploy the contents of the pmt folder, you would execute the foll
 
 ```
 heroku config:set HMR_APP_DIR=pmt
-heroku config:set HMR_LOCAL_MODULES=auth db log
+heroku config:set HMR_LOCAL_MODULES=auth db
 heroku buildpacks:add https://github.com/ekowcharles/heroku-mono-repo.git --index 1
 ```
 
