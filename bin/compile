@@ -29,7 +29,7 @@ if [[ ! -d "${BUILD_DIR}/${APP_DIR}" ]]; then
 fi
 
 echo "Copying app folder contents from '${BUILD_DIR}/${APP_DIR}/.' to '${TMP_DIR}'" | indent
-cp -a ${BUILD_DIR}/${APP_DIR}/. ${TMP_DIR}/
+cp -r ${BUILD_DIR}/${APP_DIR}/. ${TMP_DIR}/
 if ! [ $? ]; then
     echo "FAILED to copy app folder contents" | indent
     exit 1
@@ -51,7 +51,7 @@ do
     
     echo "Copying ${BUILD_DIR}/${m} to ${TMP_DIR}/" | indent
     
-    cp -a ${BUILD_DIR}/${m} ${TMP_DIR}/
+    cp -r ${BUILD_DIR}/${m} ${TMP_DIR}/
     if ! [ $? ]; then
         echo "FAILED to local modules over" | indent
         exit 1
@@ -73,7 +73,7 @@ if ! [ $? ]; then
 fi
 
 echo "Moving back app folder contents to root folder" | indent
-cp -a ${TMP_DIR}/. ${BUILD_DIR}/
+cp -r ${TMP_DIR}/. ${BUILD_DIR}/
 if ! [ $? ]; then
     echo "FAILED to move over app folder contents to root folder" | indent
     exit 1
