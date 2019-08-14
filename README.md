@@ -6,6 +6,7 @@
 
 1. Create an empty `.mono` file in the root folder of the repo.
 2. Create an environment variable `HMR_APP_DIR` in Heroku and set it to the path of the service to be deployed relative to the root folder of the repo.
+2. Create an environment variable `HMR_LOCAL_MODULES` in Heroku and provide with a space delimetered value of local do modules to be included in the deployment context.
 
 ## Usage
 
@@ -22,6 +23,7 @@ If you want to deploy the contents of the pmt folder, you would execute the foll
 
 ```
 heroku config:set HMR_APP_DIR=pmt
+heroku config:set HMR_LOCAL_MODULES=auth db log
 heroku buildpacks:add https://github.com/ekowcharles/heroku-mono-repo.git --index 1
 ```
 
