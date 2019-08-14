@@ -12,7 +12,7 @@
 
 Given you have the folder directory structure:
 
-```sh
+```
 repo
  |_ pmt
  |_ usrv
