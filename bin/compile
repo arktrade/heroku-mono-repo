@@ -82,4 +82,6 @@ fi
 echo "Deleting tmp file" | indent
 rm -rf "${TMP_DIR}"
 
+find . -type d | indent
+
 echo "Successfully copied over all app folder contents to root folder" | indent
