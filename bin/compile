@@ -43,6 +43,13 @@ fi
 
 for m in "${MODULES[@]}"
 do
+    if [[ ! -d "${BUILD_DIR}/${m}" ]]; then
+        echo "Module folder ${BUILD_DIR}/${m} does not exist" | indent
+        exit 1
+    fi
+    
+    echo "Copying ${BUILD_DIR}/${m} to ${TMP_DIR}/" | indent
+    
     cp -a ${BUILD_DIR}/${m} ${TMP_DIR}/
     if ! [ $? ]; then
         echo "FAILED to local modules over" | indent
