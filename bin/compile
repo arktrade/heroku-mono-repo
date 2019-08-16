@@ -79,6 +79,11 @@ if ! [ $? ]; then
     exit 1
 fi
 
+echo "Copying over any Procfile in app folder into root folder"
+if [ -e "${APP_DIR}/Procfile" ]; then
+    cp ${APP_DIR}/Procfile ${BUILD_DIR}/
+fi
+
 echo "Deleting tmp file" | indent
 rm -rf "${TMP_DIR}"
 
