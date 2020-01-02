@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# this pack is valid for apps with a hello.txt in the root
+# this pack is valid for apps with a .mono in the root
 if [ -f $1/.mono ]; then
   echo "Processing with mono repo buildpack"
   exit 0
