@@ -81,13 +81,20 @@ if ! [ $? ]; then
 fi
 
 echo "Moving back app folder contents to root folder" | indent
+echo ${TMP_DIR}
+echo "tmpdir1"
+ls -la ${TMP_DIR}
 cp -r ${TMP_DIR}/ ${BUILD_DIR}/
+echo "tmpdir2"
+ls -la ${TMP_DIR}
 if ! [ $? ]; then
     echo "FAILED to move over app folder contents to root folder" | indent
     exit 1
 fi
 
+echo "tmpdir3"
 ls -la ${TMP_DIR}
+echo "builddir"
 ls -la ${BUILD_DIR}
 echo "Deleting tmp file" | indent
 rm -rf "${TMP_DIR}"
