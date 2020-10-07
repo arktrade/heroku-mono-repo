@@ -83,7 +83,7 @@ if ! [ $? ]; then
 fi
 
 echo "Moving back app folder contents to root folder" | indent
-cp -r ${TMP_DIR}/. ${BUILD_DIR}/
+cp -r ${TMP_DIR}/${APP_DIR}/. ${BUILD_DIR}/
 if ! [ $? ]; then
     echo "FAILED to move over app folder contents to root folder" | indent
     exit 1
