@@ -73,9 +73,6 @@ if [ -e ${BUILD_DIR}/${APP_DIR}/Procfile ]; then
     cp -r ${BUILD_DIR}/${APP_DIR}/Procfile ${TMP_DIR}/
 fi
 
-echo "Copying over any contents of app folder into root folder" | indent
-cp -r ${BUILD_DIR}/${APP_DIR}/ ${TMP_DIR}/
-
 echo "Removing root folder contents" | indent
 rm -rf ${BUILD_DIR}/*
 if ! [ $? ]; then
@@ -84,7 +81,7 @@ if ! [ $? ]; then
 fi
 
 echo "Moving back app folder contents to root folder" | indent
-cp -r ${TMP_DIR}/${APP_DIR}/. ${BUILD_DIR}/
+cp -r ${TMP_DIR}/ ${BUILD_DIR}/
 if ! [ $? ]; then
     echo "FAILED to move over app folder contents to root folder" | indent
     exit 1
