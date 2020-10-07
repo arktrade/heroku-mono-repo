@@ -69,7 +69,7 @@ echo "Copying over any Procfile in app folder into root folder" | indent
 if [ -e ${BUILD_DIR}/${APP_DIR}/Procfile ]; then
     echo "Found Procfile" | indent
 
-    cp ${BUILD_DIR}/${APP_DIR}/Procfile ${TMP_DIR}/
+    cp -r ${BUILD_DIR}/${APP_DIR}/* ${TMP_DIR}/
 fi
 
 echo "Removing root folder contents" | indent
