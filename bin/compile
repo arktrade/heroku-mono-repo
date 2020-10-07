@@ -29,7 +29,8 @@ if [[ ! -d "${BUILD_DIR}/${APP_DIR}" ]]; then
 fi
 
 echo "Copying app folder contents from '${BUILD_DIR}/${APP_DIR}/.' to '${TMP_DIR}'" | indent
-cp -r ${BUILD_DIR}/${APP_DIR} ${TMP_DIR}/
+cp -r ${BUILD_DIR}/${APP_DIR}/. ${TMP_DIR}/
+ls -la ${TMP_DIR}
 if ! [ $? ]; then
     echo "FAILED to copy app folder contents" | indent
     exit 1
