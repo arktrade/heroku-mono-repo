@@ -89,9 +89,11 @@ if ! [ $? ]; then
     exit 1
 fi
 
+ls -la ${TMP_DIR}
+ls -la ${BUILD_DIR}
 echo "Deleting tmp file" | indent
 rm -rf "${TMP_DIR}"
 
-find ${BUILD_DIR} -type d | indent
+find ${BUILD_DIR} | indent
 
 echo "Successfully copied over all app folder contents to root folder" | indent
